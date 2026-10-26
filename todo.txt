@@ -6,3 +6,4 @@ Todo list :
 [] faire le design de cette page en css
 [] on doit avoir des sections (boissons - plats - pizzas - entrees ...)
 [] le projet doit etre responsive
+[] every thing should be in english
