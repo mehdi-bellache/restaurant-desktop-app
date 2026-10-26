@@ -1,0 +1,7 @@
+
+Todo list :
+
+[] Ajout d'un fichier html
+[] Ecriture du code html sur le fichier
+[] faire le design de cette page en css
+[] on doit avoir des sections (boissons - plats - pizzas - entrees ...)
