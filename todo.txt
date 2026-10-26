@@ -5,3 +5,4 @@ Todo list :
 [] Ecriture du code html sur le fichier
 [] faire le design de cette page en css
 [] on doit avoir des sections (boissons - plats - pizzas - entrees ...)
+[] le projet doit etre responsive
