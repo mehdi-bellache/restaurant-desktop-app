@@ -1,27 +1,32 @@
 export const menu : object[] = [{
     name : "Coca Cola",
-    price : 2.99,
-    image : "images/coca-cola.jpg"
+    priceCents : 299,
+    image : "images/coca-cola.jpg",
+    type : "drinks"
 },
 {
     name : "Pepsi",        
-    price : 2.99,
-    image : "images/pepsi-cola.jpg"
+    priceCents : 299,
+    image : "images/pepsi-cola.jpg",
+    type : "drinks"
 },
 {
     name : "Four Cheese Pizza",        
-    price : 12.99,
-    image : "images/four-cheese-pizza.jpg"
+    priceCents : 1299,
+    image : "images/four-cheese-pizza.jpg",
+    type : "pizzas"
 },
 {
     name : "Chicken Burger",        
-    price : 9.99,
-    image : "images/chicken-burger.jpg"
+    priceCents : 999,
+    image : "images/chicken-burger.jpg",
+    type : "burgers"
 },
 {
-    name : "Margherita Pizza",        
-    price : 7.99,
-    image : "images/pizza-margherita.jpg"
+    name : "Margherita Pizza",
+    priceCents : 799,
+    image : "images/pizza-margherita.jpg",
+    type : "pizzas"
     
 }
 ]
