@@ -7,13 +7,15 @@
     <title>Restaurant App</title>
 </head>
 <body>
+    <!-- -un boutton est generalement concu pour les formulaires. -->
     <h1>Restaurant</h1>
-    <div class="menu">
-        <button>Tous</button>
-        <button>Entrees</button>
-        <button>Plats</button>
-        <button>Desserts</button>
-        <button>Boissons</button>
+    <div class="categories">
+        <button class="category-btn js-category-btn">Menu</button>
+        <button class="category-btn js-category-btn">Appetizers</button>
+        <button class="category-btn js-category-btn">Main Dishes</button>
+        <button class="category-btn js-category-btn">Desserts</button>
+        <button class="category-btn js-category-btn">Drinks</button>
+        <button class="category-btn js-category-btn">Today's Menu</button>
     </div>
     <div class="boxes">
         <div class="box">
@@ -43,6 +45,6 @@
         </div>
     </div>
 
-    <script> require('./index.js');</script>
+    <script src="./index.js"></script>
 </body>
 </html>
