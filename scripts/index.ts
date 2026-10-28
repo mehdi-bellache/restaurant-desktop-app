@@ -1,4 +1,5 @@
 import {menu, MenuItem} from "./menu.js" ; 
+import { formatCurrency } from "./utils/money.js";
 
 
 document.querySelectorAll(".js-category-btn").forEach((button) => {
@@ -15,11 +16,17 @@ document.querySelectorAll(".js-category-btn").forEach((button) => {
 // on doit generer un seul produit du menu (une fonction)
 // une autre fonction qui genere le html de tout les autres menu.
 
-function buildProductMenu(product : MenuItem){
-  const html = `<div class="box">
-            <img src=${product.image} alt="Chicken Burger">
-            <h5>${product.name}</h5>
-            <span>${product.priceCents}€</span>
-        </div>`
+function buildProductMenuHTML(product : MenuItem){
+  return `
+    <div class="box">
+      <img src=${product.image}>
+      <h5>${product.name}</h5>
+      <span>${formatCurrency(product.priceCents)}€</span>
+    </div>
+  `;
+  
+}
+
+function buildAllProductsMenuHTML(){
   
 }
