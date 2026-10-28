@@ -6,5 +6,6 @@ Todo list :
 [] faire le design de cette page en css
 [] on doit avoir des sections (boissons - plats - pizzas - entrees ...)
 [] le projet doit etre responsive
-[] every thing should be in english
-[] apres avoir clique sur chaque boutton la couleur doit changer
+[] everything should be in english
+[] je dois generer le menu dans un fichier ts (qui genere le html).
+[] je dois ajouter un fichier ts.

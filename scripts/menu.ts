@@ -7,7 +7,7 @@ export interface MenuItem {
 }
 
 export const menu : MenuItem[] = [{
-    id : "ab5b62b0-825d-44c8-9d20-c39589740ec8  ",
+    id : "ab5b62b0-825d-44c8-9d20-c39589740ec8",
     name : "Coca Cola",
     priceCents : 299,
     image : "images/coca-cola.jpg",
@@ -22,7 +22,7 @@ export const menu : MenuItem[] = [{
 },
 {
     id : "a0551b2f-ecd1-4c83-8439-0ce1f8d7dabf",
-    name : "Four Cheese Pizza",        
+    name : "Four Cheese Pizza",
     priceCents : 1299,
     image : "images/four-cheese-pizza.jpg",
     type : "pizzas"
