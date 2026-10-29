@@ -13,20 +13,32 @@ document.querySelectorAll(".js-category-btn").forEach((button) => {
   });
 });
 
-// on doit generer un seul produit du menu (une fonction)
-// une autre fonction qui genere le html de tout les autres menu.
 
-function buildProductMenuHTML(product : MenuItem){
+function generateProductHTML(product: MenuItem): string {
   return `
     <div class="box">
-      <img src=${product.image}>
+      <img src="${product.image}" alt="${product.name}">
       <h5>${product.name}</h5>
-      <span>${formatCurrency(product.priceCents)}€</span>
+      <span>${formatCurrency(product.priceCents)} €</span>
     </div>
   `;
-  
 }
 
-function buildAllProductsMenuHTML(){
+function generateMenuHTML(): string {
+  let productsHTML: string = '';
   
+  menu.forEach(product => {
+    productsHTML += generateProductHTML(product);
+  });
+  
+  return productsHTML;
 }
+
+function renderMenu(): void {
+  const container = document.querySelector('.boxes') as HTMLElement;
+  if (container) {
+    container.innerHTML = generateMenuHTML();
+  }
+}
+
+renderMenu();
