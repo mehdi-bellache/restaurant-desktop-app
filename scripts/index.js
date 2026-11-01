@@ -2,6 +2,7 @@ import { menu } from "../data/menu.js";
 import { formatCurrency } from "./utils/money.js";
 document.querySelectorAll(".js-category-btn").forEach((button) => {
     button.addEventListener("click", function () {
+        renderMenu(getMenuItemsByType("pizzas"));
         const buttonMenu = document.querySelectorAll(".js-category-btn");
         buttonMenu.forEach((element) => {
             element.classList.remove("actif");
@@ -9,6 +10,9 @@ document.querySelectorAll(".js-category-btn").forEach((button) => {
         button.classList.add("actif");
     });
 });
+function getMenuItemsByType(type) {
+    return menu.filter(menuItem => menuItem.type === type);
+}
 function generateProductHTML(product) {
     return `
     <div class="box">
@@ -18,18 +22,18 @@ function generateProductHTML(product) {
     </div>
   `;
 }
-function generateMenuHTML() {
+function generateMenuHTML(menu) {
     let productsHTML = '';
     menu.forEach(product => {
         productsHTML += generateProductHTML(product);
     });
     return productsHTML;
 }
-function renderMenu() {
+function renderMenu(menu) {
     const container = document.querySelector('.boxes');
     if (container) {
-        container.innerHTML = generateMenuHTML();
+        container.innerHTML = generateMenuHTML(menu);
     }
 }
-renderMenu();
+renderMenu(menu);
 //# sourceMappingURL=index.js.map

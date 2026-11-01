@@ -4,6 +4,7 @@ import { formatCurrency } from "./utils/money.js";
 
 document.querySelectorAll(".js-category-btn").forEach((button) => {
   button.addEventListener("click", function () {
+    renderMenu(getMenuItemsByType("pizzas"));
     const buttonMenu = document.querySelectorAll(".js-category-btn");
     buttonMenu.forEach((element) => {
       element.classList.remove("actif");
@@ -13,6 +14,9 @@ document.querySelectorAll(".js-category-btn").forEach((button) => {
   });
 });
 
+function getMenuItemsByType(type : string){
+  return menu.filter(menuItem => menuItem.type === type);
+}
 
 function generateProductHTML(product: MenuItem): string {
   return `
@@ -24,7 +28,7 @@ function generateProductHTML(product: MenuItem): string {
   `;
 }
 
-function generateMenuHTML(): string {
+function generateMenuHTML(menu : MenuItem[]): string {
   let productsHTML: string = '';
   
   menu.forEach(product => {
@@ -34,11 +38,11 @@ function generateMenuHTML(): string {
   return productsHTML;
 }
 
-function renderMenu(): void {
+function renderMenu(menu : MenuItem[]): void {
   const container = document.querySelector('.boxes') as HTMLElement;
   if (container) {
-    container.innerHTML = generateMenuHTML();
+    container.innerHTML = generateMenuHTML(menu);
   }
 }
 
-renderMenu();
+renderMenu(menu);
