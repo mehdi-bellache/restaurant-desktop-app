@@ -17,7 +17,7 @@ export const menu : MenuItem[] = [{
     id : "38a7294c-4ad4-4aae-809f-145553df4fdc",
     name : "Pepsi",        
     priceCents : 299,
-    image : "images/pepsi-cola.jpg",
+    image : "images/pepsi.jpg",
     type : "drinks"
 },
 {
