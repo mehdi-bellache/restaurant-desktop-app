@@ -1,4 +1,4 @@
-import {menu, type MenuItem} from "./menu.js" ; 
+import {menu, type MenuItem} from "../data/menu.js" ; 
 import { formatCurrency } from "./utils/money.js";
 
 
