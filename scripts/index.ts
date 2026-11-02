@@ -1,5 +1,6 @@
 import {menu, type MenuItem} from "../data/menu.js" ; 
 import { formatCurrency } from "./utils/money.js";
+import {orders, type OrderItem} from "../data/orders.js";
 
 
 document.querySelectorAll(".js-category-btn").forEach((button) => {
@@ -51,3 +52,13 @@ function renderMenu(menu : MenuItem[]): void {
 }
 
 renderMenu(menu);
+
+
+document.querySelectorAll('.menu-item-add').forEach(menuItem =>{
+  menuItem.addEventListener('click', function(){
+    const id : string = menuItem.dataset.id;
+    const order : OrderItem = orders.find(order => order.id === id);
+    order.quantity++;
+  })
+})
+

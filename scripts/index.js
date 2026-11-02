@@ -1,5 +1,6 @@
 import { menu } from "../data/menu.js";
 import { formatCurrency } from "./utils/money.js";
+import { orders } from "../data/orders.js";
 document.querySelectorAll(".js-category-btn").forEach((button) => {
     button.addEventListener("click", function () {
         renderMenu(getMenuItemsByType(button.textContent.toLowerCase()));
@@ -40,4 +41,11 @@ function renderMenu(menu) {
     }
 }
 renderMenu(menu);
+document.querySelectorAll('.menu-item-add').forEach(menuItem => {
+    menuItem.addEventListener('click', function () {
+        const id = menuItem.dataset.id;
+        const order = orders.find(order => order.id === id);
+        order.quantity++;
+    });
+});
 //# sourceMappingURL=index.js.map
