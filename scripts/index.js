@@ -89,4 +89,5 @@ function renderOrders(orders) {
         container.innerHTML = generateOrdersHTML(orders);
     }
 }
+renderOrders(orders);
 //# sourceMappingURL=index.js.map

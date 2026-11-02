@@ -110,3 +110,6 @@ function renderOrders(orders : OrderItem[]) : void{
     container.innerHTML = generateOrdersHTML(orders);
   } 
 }
+
+
+renderOrders(orders);
