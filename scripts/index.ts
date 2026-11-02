@@ -24,7 +24,7 @@ function generateProductHTML(product: MenuItem): string {
   return `
     <div class="box">
       <img src="${product.image}" alt="${product.name}">
-      <h5>${product.name}</h5>
+      <p>${product.name}</p>
       <span>${formatCurrency(product.priceCents)} €</span>
     </div>
   `;

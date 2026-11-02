@@ -9,3 +9,4 @@ Todo list :
 [] everything should be in english
 [] je dois generer le menu dans un fichier ts (qui genere le html).
 [] je dois ajouter un fichier ts.
+[] c'est plutot mieux de definir un width a un element apres avoir utilise le grid ou pas ?
