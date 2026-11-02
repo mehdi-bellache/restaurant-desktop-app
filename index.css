@@ -5,10 +5,14 @@
     margin: 0;
 }
 
+body{
+    background-color: #dedede;
+}
+
 .project{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
 }
 
@@ -92,68 +96,83 @@ h1 {
 }
 
 
-.order{
-    background-color: grey;
-    margin:10px;
+.order {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    background-color: #fff;
+    color: #111;
 }
 
-
-.order-title{
+.order-title {
     font-size: 2rem;
-    margin:5px;
+    margin: 5px;
 }
 
-.order-divider{
+.order-divider {
     width: 90%;
-    margin-left: auto; 
-    margin-right: auto;
-    margin-bottom: 20px; 
+    margin-block: 0 20px;
+    margin-inline: auto;
 }
 
-.order-items{
-    margin-bottom:100px;
+.order-items {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
 }
 
-.order-item{
+.order-item {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-bottom:10px;
 }
 
-.order-item-btn{
-    width:20px;
-    height:20px;
+.order-item-btn {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
-
 }
 
-.order-summary{
+.order-summary {
     margin: 5px;
 }
 
-.order-vat{
+.order-vat,
+.order-total {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin:5px;
+    margin: 5px;
 }
 
-.order-total{
+.order-actions {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-.order-btn{
-    display: block;
-    align-items: center;
+    flex-direction: column;
+    gap: 5px;
     width: 80%;
-    margin: 5px;
-    cursor: pointer;
-    text-align: center;
-    border: none;
-    margin-left: auto; 
-    margin-right: auto; 
+    margin: 5px auto;
+}
 
+.order-btn {
+    padding: 10px;
+    border: none;
+    background-color: #e5e5e5;
+    cursor: pointer;
+}
+
+.order-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.-pay {
+    background-color: #5B7C99 ;
+    color: #fff;
+    font-size:1.2rem;
+}
+
+.order-pay {
+    background-color: #FF7C00 ;
+    color: #fff;
+    font-size:1.2rem;
 }
