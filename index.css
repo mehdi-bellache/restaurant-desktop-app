@@ -20,11 +20,10 @@ body{
     align-self: flex-start
 }
 
-.categories {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.categories{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
     margin-top: 1rem;
 }
 
