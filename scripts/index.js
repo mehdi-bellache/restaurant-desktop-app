@@ -19,7 +19,10 @@ function generateProductHTML(product) {
     <div class="box">
       <img src="${product.image}" alt="${product.name}">
       <p>${product.name}</p>
-      <span>${formatCurrency(product.priceCents)} €</span>
+      <div class="">
+        
+        <span>${formatCurrency(product.priceCents)} €</span>
+      </div>
     </div>
   `;
 }
