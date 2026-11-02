@@ -54,11 +54,43 @@ function renderMenu(menu : MenuItem[]): void {
 renderMenu(menu);
 
 
-document.querySelectorAll('.menu-item-add').forEach(menuItem =>{
+document.querySelectorAll<HTMLElement>('.menu-item-add').forEach(menuItem =>{
   menuItem.addEventListener('click', function(){
-    const id : string = menuItem.dataset.id;
-    const order : OrderItem = orders.find(order => order.id === id);
-    order.quantity++;
+    const id = menuItem.dataset.id ;
+    if(!id) return ;
+    const existingOrder = orders.find(order => order.id === id);
+    if(existingOrder){
+      existingOrder.quantity++
+    }
+    else{
+      const existingMenuItem = menu.find(menuItem => menuItem.id === id);
+      if(existingMenuItem){
+        orders.push({
+          id : existingMenuItem.id,
+          name : existingMenuItem.name,
+          priceCents : existingMenuItem.priceCents,
+          quantity : 1
+        });
+      }
+
+    }
   })
 })
+
+
+
+// generateOrderHTML(order : OrderItem){
+//   return `
+//     <div class="order-item">
+//       <div class="order-item-quantity">
+//           <button class="order-item-btn order-item-minus">-</button>
+//           <span class="order-item-count">${order.quantity}x</span>
+//           <button class="order-item-btn order-item-plus">+</button>
+//       </div>
+//       <span class="order-item-name">${order.name}</span>
+//       <span class="order-item-price">${formatCurrency(order.price)} $</span>
+//     </div>
+//   `;
+// }
+
 
