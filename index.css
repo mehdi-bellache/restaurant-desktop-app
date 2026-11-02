@@ -83,3 +83,10 @@ h1 {
     color: rgb(189, 161, 132);
     font-weight: bold;
 }
+
+.project{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}

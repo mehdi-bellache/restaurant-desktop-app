@@ -7,19 +7,52 @@
     <title>Restaurant App</title>
 </head>
 <body>
-    <h1>Restaurant</h1>
-    <div class="categories">
-        <button class="category-btn js-category-btn">Menu</button>
-        <button class="category-btn js-category-btn">Appetizers</button>
-        <button class="category-btn js-category-btn">Main Dishes</button>
-        <button class="category-btn js-category-btn">Pizzas</button>
-        <button class="category-btn js-category-btn">Burgers</button>
-        <button class="category-btn js-category-btn">Drinks</button>
-        <button class="category-btn js-category-btn">Desserts</button>
-        <button class="category-btn js-category-btn">Today's Menu</button>
+    <div class="project">
+        <div class="firstPart">
+            <h1>Restaurant</h1>
+            <div class="categories">
+                <button class="category-btn js-category-btn">Menu</button>
+                <button class="category-btn js-category-btn">Appetizers</button>
+                <button class="category-btn js-category-btn">Main Dishes</button>
+                <button class="category-btn js-category-btn">Pizzas</button>
+                <button class="category-btn js-category-btn">Burgers</button>
+                <button class="category-btn js-category-btn">Drinks</button>
+                <button class="category-btn js-category-btn">Desserts</button>
+                <button class="category-btn js-category-btn">Today's Menu</button>
+            </div>
+            <div class="boxes"></div>
+        </div>
+        <div class="order">
+            <h2 class="order__title">Order in progress</h2>
+            <hr class="order__divider">
+
+            <div class="order__items">
+                <div class="order-item">
+                    <div class="order-item__quantity">
+                        <button class="order-item__btn order-item__btn--minus">-</button>
+                        <span class="order-item__count">2x</span>
+                        <button class="order-item__btn order-item__btn--plus">+</button>
+                    </div>
+                    <span class="order-item__name">Four cheese pizza</span>
+                    <span class="order-item__price">9.99 $</span>
+                </div>
+            </div>
+
+            <hr class="order__divider">
+
+            <div class="order__summary">
+                <p class="order__vat">VAT (5.5%) : 1.99 $</p>
+                <p class="order__total">Total TTC : 11.99 $</p>
+            </div>
+
+            <div class="order__actions">
+                <button class="order__btn order__btn--kitchen">Send to the kitchen</button>
+                <button class="order__btn order__btn--pay">Pay</button>
+            </div>
+        </div>
     </div>
-    <div class="boxes">
-    </div>
+
+    
 
     <script src="./scripts/index.js" type="module"></script>
 </body>
