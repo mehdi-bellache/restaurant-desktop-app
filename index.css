@@ -5,6 +5,13 @@
     margin: 0;
 }
 
+.project{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
 .categories {
     display: flex;
     align-items: center;
@@ -84,9 +91,69 @@ h1 {
     font-weight: bold;
 }
 
-.project{
+
+.order{
+    background-color: grey;
+    margin:10px;
+}
+
+
+.order-title{
+    font-size: 2rem;
+    margin:5px;
+}
+
+.order-divider{
+    width: 90%;
+    margin-left: auto; 
+    margin-right: auto;
+    margin-bottom: 20px; 
+}
+
+.order-items{
+    margin-bottom:100px;
+}
+
+.order-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.order-item-btn{
+    width:20px;
+    height:20px;
+    cursor: pointer;
+
+}
+
+.order-summary{
+    margin: 5px;
+}
+
+.order-vat{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin:5px;
+}
+
+.order-total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.order-btn{
+    display: block;
+    align-items: center;
+    width: 80%;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    margin-left: auto; 
+    margin-right: auto; 
 
 }
