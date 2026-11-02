@@ -79,18 +79,18 @@ document.querySelectorAll<HTMLElement>('.menu-item-add').forEach(menuItem =>{
 
 
 
-// generateOrderHTML(order : OrderItem){
-//   return `
-//     <div class="order-item">
-//       <div class="order-item-quantity">
-//           <button class="order-item-btn order-item-minus">-</button>
-//           <span class="order-item-count">${order.quantity}x</span>
-//           <button class="order-item-btn order-item-plus">+</button>
-//       </div>
-//       <span class="order-item-name">${order.name}</span>
-//       <span class="order-item-price">${formatCurrency(order.price)} $</span>
-//     </div>
-//   `;
-// }
+function generateOrderHTML(order : OrderItem){
+  return `
+    <div class="order-item">
+      <div class="order-item-quantity">
+          <button class="order-item-btn order-item-minus">-</button>
+          <span class="order-item-count">${order.quantity}x</span>
+          <button class="order-item-btn order-item-plus">+</button>
+      </div>
+      <span class="order-item-name">${order.name}</span>
+      <span class="order-item-price">${formatCurrency(order.priceCents)} $</span>
+    </div>
+  `;
+}
 
 
