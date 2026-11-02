@@ -93,4 +93,20 @@ function generateOrderHTML(order : OrderItem){
   `;
 }
 
+function generateOrdersHTML(orders : OrderItem[]) : string{
+  let ordersHTML: string = '';
+  
+  orders.forEach(order => {
+    ordersHTML += generateOrderHTML(order);
+  });
+  
+  return ordersHTML;
+}
 
+
+function renderOrders(orders : OrderItem[]) : void{
+  const container = document.querySelector<HTMLElement>('.order-items');
+  if (container) {
+    container.innerHTML = generateOrdersHTML(orders);
+  } 
+}

@@ -76,4 +76,17 @@ function generateOrderHTML(order) {
     </div>
   `;
 }
+function generateOrdersHTML(orders) {
+    let ordersHTML = '';
+    orders.forEach(order => {
+        ordersHTML += generateOrderHTML(order);
+    });
+    return ordersHTML;
+}
+function renderOrders(orders) {
+    const container = document.querySelector('.order-items');
+    if (container) {
+        container.innerHTML = generateOrdersHTML(orders);
+    }
+}
 //# sourceMappingURL=index.js.map
