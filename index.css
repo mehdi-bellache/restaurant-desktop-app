@@ -83,9 +83,7 @@ h1 {
 }
 
 .box span {
-    display: block;
     text-align: end;
-    color: rgb(189, 161, 132);
     font-weight: bold;
 }
 

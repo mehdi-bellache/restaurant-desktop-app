@@ -20,14 +20,14 @@ function getMenuItemsByType(type : string){
 
 }
 
-function generateProductHTML(product: MenuItem): string {
+function generateMenuItemHTML(menuItem: MenuItem): string {
   return `
-    <div class="box">
-      <img src="${product.image}" alt="${product.name}">
-      <p>${product.name}</p>
-      <div class="">
-        
-        <span>${formatCurrency(product.priceCents)} €</span>
+    <div class="menu-item">
+      <img class="menu-item-image" src="${menuItem.image}" alt="${menuItem.name}">
+      <p class="menu-item-name">${menuItem.name}</p>
+      <div class="menu-item-footer">
+        <span class="menu-item-price">${formatCurrency(menuItem.priceCents)} €</span>
+        <i class="menu-item-add fa-solid fa-plus"></i>
       </div>
     </div>
   `;
@@ -37,7 +37,7 @@ function generateMenuHTML(menu : MenuItem[]): string {
   let productsHTML: string = '';
   
   menu.forEach(product => {
-    productsHTML += generateProductHTML(product);
+    productsHTML += generateMenuItemHTML(product);
   });
   
   return productsHTML;
