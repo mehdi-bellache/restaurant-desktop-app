@@ -10,3 +10,5 @@ Todo list :
 [] je dois generer le menu dans un fichier ts (qui genere le html).
 [] je dois ajouter un fichier ts.
 [] c'est plutot mieux de definir un width a un element apres avoir utilise le grid ou pas ?
+[] je dois penser sur la possibilite ou je peux avoir deux fichiers un qui contient les fonction de menu et l'autre les fonctions 
+de order.

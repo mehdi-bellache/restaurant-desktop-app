@@ -15,6 +15,34 @@ document.querySelectorAll(".js-category-btn").forEach((button) => {
   });
 });
 
+document.querySelectorAll<HTMLElement>('.menu-item-add').forEach(menuItem =>{
+  menuItem.addEventListener('click', function(){
+    const id = menuItem.dataset.id ;
+    if(!id) return ;
+    const existingOrder = orders.find(order => order.id === id);
+    if(existingOrder){
+      existingOrder.quantity++;
+      console.log('first test !');
+      renderOrders(orders);
+    }
+    else{
+      const existingMenuItem = menu.find(menuItem => menuItem.id === id);
+      if(existingMenuItem){
+        orders.push({
+          id : existingMenuItem.id,
+          name : existingMenuItem.name,
+          priceCents : existingMenuItem.priceCents,
+          quantity : 1
+        });
+        renderOrders(orders);
+        console.log('second test !');
+      }
+
+    }
+  })
+})
+
+
 function getMenuItemsByType(type : string){
   const newMenu : MenuItem[] = menu.filter(menuItem => menuItem.type === type);
   return newMenu.length === 0 ? menu : newMenu ;
@@ -51,33 +79,6 @@ function renderMenu(menu : MenuItem[]): void {
   }
 }
 
-renderMenu(menu);
-
-
-document.querySelectorAll<HTMLElement>('.menu-item-add').forEach(menuItem =>{
-  menuItem.addEventListener('click', function(){
-    const id = menuItem.dataset.id ;
-    if(!id) return ;
-    const existingOrder = orders.find(order => order.id === id);
-    if(existingOrder){
-      existingOrder.quantity++
-    }
-    else{
-      const existingMenuItem = menu.find(menuItem => menuItem.id === id);
-      if(existingMenuItem){
-        orders.push({
-          id : existingMenuItem.id,
-          name : existingMenuItem.name,
-          priceCents : existingMenuItem.priceCents,
-          quantity : 1
-        });
-      }
-
-    }
-  })
-})
-
-
 
 function generateOrderHTML(order : OrderItem){
   return `
@@ -111,5 +112,6 @@ function renderOrders(orders : OrderItem[]) : void{
   } 
 }
 
+renderMenu(menu);
 
 renderOrders(orders);

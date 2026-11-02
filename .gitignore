@@ -6,6 +6,7 @@ node_modules/
 todo.txt/
 *.d.*
 *.js.*
+project.png
 
 ### Linux ###
 *~
