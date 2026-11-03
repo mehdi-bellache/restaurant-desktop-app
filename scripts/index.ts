@@ -17,7 +17,7 @@ document.querySelectorAll(".js-category-btn").forEach((button) => {
 });
 
 function addMenuItemToOrder(){
-  document.querySelectorAll<HTMLElement>('.menu-item-add').forEach(menuItem =>{
+  document.querySelectorAll<HTMLElement>('.js-menu-item-add').forEach(menuItem =>{
     menuItem.addEventListener('click', function(){
       const id = menuItem.dataset.id ;
       if(!id) return ;
@@ -58,7 +58,7 @@ function generateMenuItemHTML(menuItem: MenuItem): string {
       <p class="menu-item-name">${menuItem.name}</p>
       <div class="menu-item-footer">
         <span class="menu-item-price">${formatCurrency(menuItem.priceCents)} €</span>
-        <i class="menu-item-add fa-solid fa-plus" data-id="${menuItem.id}"></i>
+        <i class="menu-item-add js-menu-item-add fa-solid fa-plus" data-id="${menuItem.id}"></i>
       </div>
     </div>
   `;
@@ -108,7 +108,7 @@ function generateOrdersHTML(orders : OrderItem[]) : string{
 
 
 function renderOrders(orders : OrderItem[]) : void{
-  const container = document.querySelector<HTMLElement>('.order-items');
+  const container = document.querySelector<HTMLElement>('.js-order-items');
   if (container) {
     container.innerHTML = generateOrdersHTML(orders);
   } 
@@ -131,17 +131,17 @@ function calculateTotalWithTaxCents(orders : OrderItem[]){
 }
 
 function renderOrderSummary(){
-  let container = document.querySelector<HTMLElement>('.order-ht-price');
+  let container = document.querySelector<HTMLElement>('.js-order-ht-price');
   if(container){
     container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))} $`;
   }
 
-   container = document.querySelector<HTMLElement>('.order-vat-price');
+   container = document.querySelector<HTMLElement>('.js-order-vat-price');
   if(container){
     container.innerHTML = `${formatCurrency(calculateTaxCents(orders))} $`;
   }
 
-  container = document.querySelector<HTMLElement>('.order-total-price');
+  container = document.querySelector<HTMLElement>('.js-order-total-price');
   if(container){
     container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))} $`;
   }
