@@ -153,10 +153,11 @@ h1 {
 }
 
 .order-vat,
-.order-total {
+.order-total, 
+.order-ht {
     display: flex;
     justify-content: space-between;
-    margin: 5px;
+    margin: .7rem;
 }
 
 .order-actions {
