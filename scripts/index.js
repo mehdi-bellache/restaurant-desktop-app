@@ -97,4 +97,11 @@ function renderOrders(orders) {
 renderMenu(menu);
 renderOrders(orders);
 addMenuItemToOrder();
+function calculateOrdersTotalPriceCents(orders) {
+    if (orders.length === 0)
+        return 0;
+    let sum = 0;
+    orders.forEach(order => sum += order.priceCents);
+    return sum;
+}
 //# sourceMappingURL=index.js.map

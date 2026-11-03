@@ -118,3 +118,13 @@ renderMenu(menu);
 renderOrders(orders);
 
 addMenuItemToOrder();
+
+
+
+function calculateOrdersTotalPriceCents(orders : OrderItem[]){
+  if(orders.length === 0) return 0;
+  let sum : number = 0 ;
+  orders.forEach(order => sum += order.priceCents);
+  return sum ;
+
+}
