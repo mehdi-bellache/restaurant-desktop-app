@@ -50,7 +50,7 @@ function generateMenuItemHTML(menuItem) {
       <p class="menu-item-name">${menuItem.name}</p>
       <div class="menu-item-footer">
         <span class="menu-item-price">${formatCurrency(menuItem.priceCents)} €</span>
-        <i class="menu-item-add fa-solid fa-plus data-id="${menuItem.id}"></i>
+        <i class="menu-item-add fa-solid fa-plus" data-id="${menuItem.id}"></i>
       </div>
     </div>
   `;
