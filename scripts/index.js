@@ -4,6 +4,7 @@ import { orders } from "../data/orders.js";
 document.querySelectorAll(".js-category-btn").forEach((button) => {
     button.addEventListener("click", function () {
         renderMenu(getMenuItemsByType(button.textContent.toLowerCase()));
+        addMenuItemToOrder();
         const buttonMenu = document.querySelectorAll(".js-category-btn");
         buttonMenu.forEach((element) => {
             element.classList.remove("actif");
@@ -11,32 +12,33 @@ document.querySelectorAll(".js-category-btn").forEach((button) => {
         button.classList.add("actif");
     });
 });
-document.querySelectorAll('.menu-item-add').forEach(menuItem => {
-    menuItem.addEventListener('click', function () {
-        const id = menuItem.dataset.id;
-        if (!id)
-            return;
-        const existingOrder = orders.find(order => order.id === id);
-        if (existingOrder) {
-            existingOrder.quantity++;
-            console.log('first test !');
-            renderOrders(orders);
-        }
-        else {
-            const existingMenuItem = menu.find(menuItem => menuItem.id === id);
-            if (existingMenuItem) {
-                orders.push({
-                    id: existingMenuItem.id,
-                    name: existingMenuItem.name,
-                    priceCents: existingMenuItem.priceCents,
-                    quantity: 1
-                });
+function addMenuItemToOrder() {
+    document.querySelectorAll('.menu-item-add').forEach(menuItem => {
+        menuItem.addEventListener('click', function () {
+            const id = menuItem.dataset.id;
+            if (!id)
+                return;
+            const existingOrder = orders.find(order => order.id === id);
+            if (existingOrder) {
+                existingOrder.quantity++;
                 renderOrders(orders);
-                console.log('second test !');
             }
-        }
+            else {
+                const existingMenuItem = menu.find(menuItem => menuItem.id === id);
+                if (existingMenuItem) {
+                    orders.push({
+                        id: existingMenuItem.id,
+                        name: existingMenuItem.name,
+                        priceCents: existingMenuItem.priceCents,
+                        quantity: 1
+                    });
+                    renderOrders(orders);
+                    console.log('second test !');
+                }
+            }
+        });
     });
-});
+}
 function getMenuItemsByType(type) {
     const newMenu = menu.filter(menuItem => menuItem.type === type);
     return newMenu.length === 0 ? menu : newMenu;
@@ -94,4 +96,5 @@ function renderOrders(orders) {
 }
 renderMenu(menu);
 renderOrders(orders);
+addMenuItemToOrder();
 //# sourceMappingURL=index.js.map
