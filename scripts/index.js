@@ -94,9 +94,6 @@ function renderOrders(orders) {
         container.innerHTML = generateOrdersHTML(orders);
     }
 }
-renderMenu(menu);
-renderOrders(orders);
-addMenuItemToOrder();
 function calculateSubtotalCents(orders) {
     if (orders.length === 0)
         return 0;
@@ -111,4 +108,22 @@ function calculateTaxCents(orders) {
 function calculateTotalWithTaxCents(orders) {
     return calculateSubtotalCents(orders) + calculateTaxCents(orders);
 }
+function renderOrderSummary() {
+    let container = document.querySelector('.order-ht-price');
+    if (container) {
+        container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))}$`;
+    }
+    container = document.querySelector('.order-vat-price');
+    if (container) {
+        container.innerHTML = `${formatCurrency(calculateTaxCents(orders))}`;
+    }
+    container = document.querySelector('.order-total-price');
+    if (container) {
+        container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))}`;
+    }
+}
+renderMenu(menu);
+renderOrders(orders);
+addMenuItemToOrder();
+renderOrderSummary();
 //# sourceMappingURL=index.js.map
