@@ -25,6 +25,7 @@ function addMenuItemToOrder(){
       if(existingOrder){
         existingOrder.quantity++;
         renderOrders(orders);
+        renderOrderSummary();
       }
       else{
         const existingMenuItem = menu.find(menuItem => menuItem.id === id);
@@ -36,7 +37,7 @@ function addMenuItemToOrder(){
             quantity : 1
           });
           renderOrders(orders);
-          console.log('second test !');
+          renderOrderSummary()
         }
 
       }
