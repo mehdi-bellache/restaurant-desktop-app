@@ -121,10 +121,18 @@ addMenuItemToOrder();
 
 
 
-function calculateOrdersTotalPriceCents(orders : OrderItem[]){
+function calculateSubtotalCents(orders : OrderItem[]){
   if(orders.length === 0) return 0;
   let sum : number = 0 ;
   orders.forEach(order => sum += order.priceCents);
   return sum ;
+}
 
+/** (5.5 /100) represents the taxes : (5.5%) */
+function calculateTaxCents(orders : OrderItem[]){
+  return calculateSubtotalCents(orders) * (5.5/100);
+}
+
+function calculateTotalWithTaxCents(orders : OrderItem[]){
+  return calculateSubtotalCents(orders) + calculateTaxCents(orders) ;
 }

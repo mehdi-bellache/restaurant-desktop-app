@@ -97,11 +97,18 @@ function renderOrders(orders) {
 renderMenu(menu);
 renderOrders(orders);
 addMenuItemToOrder();
-function calculateOrdersTotalPriceCents(orders) {
+function calculateSubtotalCents(orders) {
     if (orders.length === 0)
         return 0;
     let sum = 0;
     orders.forEach(order => sum += order.priceCents);
     return sum;
+}
+/** (5.5 /100) represents the taxes : (5.5%) */
+function calculateTaxCents(orders) {
+    return calculateSubtotalCents(orders) * (5.5 / 100);
+}
+function calculateTotalWithTaxCents(orders) {
+    return calculateSubtotalCents(orders) + calculateTaxCents(orders);
 }
 //# sourceMappingURL=index.js.map
