@@ -124,7 +124,7 @@ addMenuItemToOrder();
 function calculateSubtotalCents(orders : OrderItem[]){
   if(orders.length === 0) return 0;
   let sum : number = 0 ;
-  orders.forEach(order => sum += order.priceCents);
+  orders.forEach(order => sum += order.priceCents * order.quantity);
   return sum ;
 }
 

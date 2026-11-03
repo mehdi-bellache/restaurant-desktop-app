@@ -101,7 +101,7 @@ function calculateSubtotalCents(orders) {
     if (orders.length === 0)
         return 0;
     let sum = 0;
-    orders.forEach(order => sum += order.priceCents);
+    orders.forEach(order => sum += order.priceCents * order.quantity);
     return sum;
 }
 /** (5.5 /100) represents the taxes : (5.5%) */
