@@ -112,15 +112,15 @@ function calculateTotalWithTaxCents(orders) {
 function renderOrderSummary() {
     let container = document.querySelector('.order-ht-price');
     if (container) {
-        container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))}$`;
+        container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))} $`;
     }
     container = document.querySelector('.order-vat-price');
     if (container) {
-        container.innerHTML = `${formatCurrency(calculateTaxCents(orders))}`;
+        container.innerHTML = `${formatCurrency(calculateTaxCents(orders))} $`;
     }
     container = document.querySelector('.order-total-price');
     if (container) {
-        container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))}`;
+        container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))} $`;
     }
 }
 renderMenu(menu);

@@ -133,17 +133,17 @@ function calculateTotalWithTaxCents(orders : OrderItem[]){
 function renderOrderSummary(){
   let container = document.querySelector<HTMLElement>('.order-ht-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))}$`;
+    container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))} $`;
   }
 
    container = document.querySelector<HTMLElement>('.order-vat-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateTaxCents(orders))}`;
+    container.innerHTML = `${formatCurrency(calculateTaxCents(orders))} $`;
   }
 
   container = document.querySelector<HTMLElement>('.order-total-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))}`;
+    container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))} $`;
   }
 
 }
