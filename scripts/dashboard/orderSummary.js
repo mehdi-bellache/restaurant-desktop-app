@@ -14,7 +14,7 @@ function calculateTaxCents(orders) {
 function calculateTotalWithTaxCents(orders) {
     return calculateSubtotalCents(orders) + calculateTaxCents(orders);
 }
-function renderOrderSummary() {
+export function renderOrderSummary() {
     let container = document.querySelector('.js-order-ht-price');
     if (container) {
         container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))} $`;

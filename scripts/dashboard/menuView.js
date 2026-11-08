@@ -19,7 +19,7 @@ function generateMenuHTML(menu) {
     });
     return productsHTML;
 }
-function renderMenu(menu) {
+export function renderMenu(menu) {
     const container = document.querySelector('.boxes');
     if (container) {
         container.innerHTML = generateMenuHTML(menu);

@@ -25,7 +25,7 @@ function generateMenuHTML(menu : MenuItem[]): string {
   return productsHTML;
 }
 
-function renderMenu(menu : MenuItem[]): void {
+export function renderMenu(menu : MenuItem[]): void {
   const container = document.querySelector('.boxes') as HTMLElement;
   if (container) {
     container.innerHTML = generateMenuHTML(menu);
