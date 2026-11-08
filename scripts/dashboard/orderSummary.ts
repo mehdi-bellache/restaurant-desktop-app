@@ -1,0 +1,37 @@
+import { formatCurrency } from "../utils/money.js";
+import {orders, type OrderItem} from "../../data/orders.js";
+
+
+function calculateSubtotalCents(orders : OrderItem[]){
+  if(orders.length === 0) return 0;
+  let sum : number = 0 ;
+  orders.forEach(order => sum += order.priceCents * order.quantity);
+  return sum ;
+}
+
+/** (5.5 /100) represents the taxes : (5.5%) */
+function calculateTaxCents(orders : OrderItem[]){
+  return calculateSubtotalCents(orders) * (5.5/100);
+}
+
+function calculateTotalWithTaxCents(orders : OrderItem[]){
+  return calculateSubtotalCents(orders) + calculateTaxCents(orders) ;
+}
+
+function renderOrderSummary(){
+  let container = document.querySelector<HTMLElement>('.js-order-ht-price');
+  if(container){
+    container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))} $`;
+  }
+
+   container = document.querySelector<HTMLElement>('.js-order-vat-price');
+  if(container){
+    container.innerHTML = `${formatCurrency(calculateTaxCents(orders))} $`;
+  }
+
+  container = document.querySelector<HTMLElement>('.js-order-total-price');
+  if(container){
+    container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))} $`;
+  }
+
+}
