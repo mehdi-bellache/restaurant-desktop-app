@@ -136,7 +136,9 @@ orderItemsContainer?.addEventListener('click', (event) => {
     const order = orders.find(item => item.id === id);
     if (!order)
         return;
-    order.quantity--;
+    if (order.quantity > 0) {
+        order.quantity--;
+    }
     renderOrders(orders);
     renderOrderSummary();
 });
