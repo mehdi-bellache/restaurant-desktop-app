@@ -1,9 +1,5 @@
 
 Todo list :
-
-[] Ajout d'un fichier html
-[] Ecriture du code html sur le fichier
-[] faire le design de cette page en css
 [] on doit avoir des sections (boissons - plats - pizzas - entrees ...)
 [] le projet doit etre responsive
 [] everything should be in english
@@ -12,3 +8,5 @@ Todo list :
 [] c'est plutot mieux de definir un width a un element apres avoir utilise le grid ou pas ?
 [] je dois penser sur la possibilite ou je peux avoir deux fichiers un qui contient les fonction de menu et l'autre les fonctions 
 de order.
+[] ajout d'un attribut currency dans menu.ts
+[] la variable orders doit avoir seulement id et quantity.

@@ -86,9 +86,9 @@ function generateOrderHTML(order : OrderItem){
   return `
     <div class="order-item">
       <div class="order-item-quantity">
-          <button class="order-item-btn order-item-minus">-</button>
+          <button class="order-item-btn order-item-minus js-order-item-minus" data-id = "${order.id}">-</button>
           <span class="order-item-count">${order.quantity}x</span>
-          <button class="order-item-btn order-item-plus">+</button>
+          <button class="order-item-btn order-item-plus js-order-item-plus" data-id = "${order.id}">+</button>
       </div>
       <span class="order-item-name">${order.name}</span>
       <span class="order-item-price">${formatCurrency(order.priceCents)} $</span>
@@ -157,3 +157,35 @@ renderOrders(orders);
 addMenuItemToOrder();
 
 renderOrderSummary();
+
+
+
+const orderItemsContainer = document.querySelector<HTMLElement>('.order-items');
+
+
+orderItemsContainer?.addEventListener('click', (event) => {
+  const button = (event.target as HTMLElement).closest<HTMLElement>('.js-order-item-minus');
+  const id = button?.dataset.id;
+  if (!id) return;
+
+  const order = orders.find(item => item.id === id);
+  if (!order) return;
+
+  order.quantity--;
+  renderOrders(orders);
+  renderOrderSummary();
+})
+
+
+orderItemsContainer?.addEventListener('click', (event) => {
+  const button = (event.target as HTMLElement).closest<HTMLElement>('.js-order-item-plus');
+  const id = button?.dataset.id;
+  if (!id) return;
+
+  const order = orders.find(item => item.id === id);
+  if (!order) return;
+
+  order.quantity++;
+  renderOrders(orders);
+  renderOrderSummary();
+})
