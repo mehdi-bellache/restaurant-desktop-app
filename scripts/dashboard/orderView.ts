@@ -27,7 +27,7 @@ function generateOrdersHTML(orders : OrderItem[]) : string{
 }
 
 
-function renderOrders(orders : OrderItem[]) : void{
+export function renderOrders(orders : OrderItem[]) : void{
   const container = document.querySelector<HTMLElement>('.js-order-items');
   if (container) {
     container.innerHTML = generateOrdersHTML(orders);

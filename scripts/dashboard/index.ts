@@ -1,8 +1,9 @@
-import {menu, type MenuItem} from "../../data/menu.js" ; 
+import {menu, type MenuItem, getMenuItemsByType} from "../../data/menu.js" ; 
 import { formatCurrency } from "../utils/money.js";
 import {orders, type OrderItem} from "../../data/orders.js";
 import {renderMenu} from "./menuView.js" ;
 import {renderOrders} from "./orderView.js" ;
+import {renderOrderSummary} from "./orderSummary.js" ;
 
 
 document.querySelectorAll(".js-category-btn").forEach((button) => {
@@ -79,13 +80,6 @@ orderItemsContainer?.addEventListener('click', (event) => {
   renderOrders(orders);
   renderOrderSummary();
 })
-
-
-function getMenuItemsByType(type : string){
-  const newMenu : MenuItem[] = menu.filter(menuItem => menuItem.type === type);
-  return newMenu.length === 0 ? menu : newMenu ;
-
-}
 
 
 renderMenu(menu);

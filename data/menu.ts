@@ -43,3 +43,10 @@ export const menu : MenuItem[] = [{
     
 }
 ]
+
+
+export function getMenuItemsByType(type : string){
+  const newMenu : MenuItem[] = menu.filter(menuItem => menuItem.type === type);
+  return newMenu.length === 0 ? menu : newMenu ;
+
+}

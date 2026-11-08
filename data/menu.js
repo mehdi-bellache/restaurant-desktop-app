@@ -34,4 +34,8 @@ export const menu = [{
         type: "pizzas"
     }
 ];
+export function getMenuItemsByType(type) {
+    const newMenu = menu.filter(menuItem => menuItem.type === type);
+    return newMenu.length === 0 ? menu : newMenu;
+}
 //# sourceMappingURL=menu.js.map

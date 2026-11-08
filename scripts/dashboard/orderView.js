@@ -20,7 +20,7 @@ function generateOrdersHTML(orders) {
     });
     return ordersHTML;
 }
-function renderOrders(orders) {
+export function renderOrders(orders) {
     const container = document.querySelector('.js-order-items');
     if (container) {
         container.innerHTML = generateOrdersHTML(orders);
