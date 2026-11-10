@@ -3,6 +3,8 @@ import {orders, type OrderItem} from "../../data/orders.js";
 import {renderMenu} from "./menuView.js" ;
 import {renderOrders} from "./orderView.js" ;
 import {renderOrderSummary} from "./orderSummary.js" ;
+import { renderMenuTypes } from "./menuTypeView.js"; 
+import { menuTypes } from "../../data/menuTypes.js";
 
 
 // il me faut des lignes de commentaires pour expliquer les trucs qui ont l'aire d'aitre un peu complique a comprendre.
@@ -80,6 +82,8 @@ orderItemsContainer?.addEventListener('click', (event) => {
   renderOrderSummary();
 })
 
+
+renderMenuTypes(menuTypes);
 
 renderMenu(menu);
 
