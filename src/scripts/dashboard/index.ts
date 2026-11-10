@@ -1,5 +1,4 @@
 import {menu, type MenuItem, getMenuItemsByType} from "../../data/menu.js" ; 
-import { formatCurrency } from "../utils/money.js";
 import {orders, type OrderItem} from "../../data/orders.js";
 import {renderMenu} from "./menuView.js" ;
 import {renderOrders} from "./orderView.js" ;
