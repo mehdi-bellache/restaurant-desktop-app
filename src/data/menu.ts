@@ -50,3 +50,7 @@ export function getMenuItemsByType(type : string){
   return newMenu.length === 0 ? menu : newMenu ;
 
 }
+
+export function getMenuItemById(id : string){
+    return menu.find( menuItem => menuItem.id === id);
+}

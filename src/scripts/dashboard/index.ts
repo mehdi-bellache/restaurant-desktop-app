@@ -36,8 +36,6 @@ function addMenuItemToOrder(){
         if(existingMenuItem){
           orders.push({
             id : existingMenuItem.id,
-            name : existingMenuItem.name,
-            priceCents : existingMenuItem.priceCents,
             quantity : 1
           });
           renderOrders(orders);
