@@ -20,14 +20,14 @@ body{
     align-self: flex-start
 }
 
-.categories{
+.menu-types{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 1rem;
     margin-top: 1rem;
 }
 
-.categories .category-btn {
+.menu-types .menu-type-btn {
     height: 3rem;
     background-color: white;
     color: #000;
@@ -37,12 +37,12 @@ body{
     font-weight: 600;
 }
 
-.categories .category-btn:hover{
+.menu-types .menu-type-btn:hover{
     background-color: black;
     color: white;
 }
 
-.categories .actif{
+.menu-types .actif{
     background-color: black;
     color: white;
 }

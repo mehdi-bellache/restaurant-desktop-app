@@ -7,11 +7,11 @@ import {renderOrderSummary} from "./orderSummary.js" ;
 
 // il me faut des lignes de commentaires pour expliquer les trucs qui ont l'aire d'aitre un peu complique a comprendre.
 
-document.querySelectorAll(".js-category-btn").forEach((button) => {
+document.querySelectorAll(".js-type-btn").forEach((button) => {
   button.addEventListener("click", function () {
     renderMenu(getMenuItemsByType(button.textContent.toLowerCase()));
     addMenuItemToOrder();
-    const buttonMenu = document.querySelectorAll(".js-category-btn");
+    const buttonMenu = document.querySelectorAll(".js-type-btn");
     buttonMenu.forEach((element) => {
       element.classList.remove("actif");
     });
