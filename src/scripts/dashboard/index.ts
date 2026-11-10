@@ -6,6 +6,8 @@ import {renderOrders} from "./orderView.js" ;
 import {renderOrderSummary} from "./orderSummary.js" ;
 
 
+// il me faut des lignes de commentaires pour expliquer les trucs qui ont l'aire d'aitre un peu complique a comprendre.
+
 document.querySelectorAll(".js-category-btn").forEach((button) => {
   button.addEventListener("click", function () {
     renderMenu(getMenuItemsByType(button.textContent.toLowerCase()));
