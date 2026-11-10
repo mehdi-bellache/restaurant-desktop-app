@@ -11,7 +11,7 @@ function generateOrderHTML(order : OrderItem){
           <button class="order-item-btn order-item-plus js-order-item-plus" data-id = "${order.id}">+</button>
       </div>
       <span class="order-item-name">${order.name}</span>
-      <span class="order-item-price">${formatCurrency(order.priceCents)} $</span>
+      <span class="order-item-price">${formatCurrency(order.priceCents)}</span>
     </div>
   `;
 }

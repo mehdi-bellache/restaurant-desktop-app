@@ -1,5 +1,6 @@
 import { formatCurrency } from "../utils/money.js";
 import {orders, type OrderItem} from "../../data/orders.js";
+import { config } from "../../data/config.js";
 
 
 function calculateSubtotalCents(orders : OrderItem[]){
@@ -9,9 +10,8 @@ function calculateSubtotalCents(orders : OrderItem[]){
   return sum ;
 }
 
-/** (5.5 /100) represents the taxes : (5.5%) */
 function calculateTaxCents(orders : OrderItem[]){
-  return calculateSubtotalCents(orders) * (5.5/100);
+  return calculateSubtotalCents(orders) * config.taxRate;
 }
 
 function calculateTotalWithTaxCents(orders : OrderItem[]){
@@ -21,17 +21,22 @@ function calculateTotalWithTaxCents(orders : OrderItem[]){
 export function renderOrderSummary(){
   let container = document.querySelector<HTMLElement>('.js-order-ht-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))} $`;
+    container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))}`;
+  }
+  container = document.querySelector<HTMLElement>('.js-order-vat-name');
+
+  if(container){
+    container.innerHTML =  `VAT (${config.taxRate * 100}%) :` ;
   }
 
    container = document.querySelector<HTMLElement>('.js-order-vat-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateTaxCents(orders))} $`;
+    container.innerHTML = `${formatCurrency(calculateTaxCents(orders))}`;
   }
 
   container = document.querySelector<HTMLElement>('.js-order-total-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))} $`;
+    container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))}`;
   }
 
 }
