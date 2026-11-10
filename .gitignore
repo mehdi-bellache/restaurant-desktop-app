@@ -3,7 +3,7 @@
 
 # Extras 
 node_modules/
-todo.txt/
+todo.txt
 dist/
 
 ### Linux ###
