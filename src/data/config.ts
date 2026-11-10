@@ -1,9 +1,9 @@
 interface Config{
-    currency : string,
+    currencySymbol : string,
     taxRate : number
 }
 
 export const config  : Config = {
-    currency : '$',
+    currencySymbol : '$',
     taxRate: 0.075,
 }
