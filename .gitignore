@@ -4,8 +4,7 @@
 # Extras 
 node_modules/
 todo.txt/
-*.d.*
-*.js.*
+dist/
 
 ### Linux ###
 *~

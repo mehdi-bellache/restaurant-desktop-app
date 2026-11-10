@@ -1,5 +1,5 @@
-### ⚒️ The Project is Under construction
+## ⚒️ The Project is Under construction
 
 
-## A view on the project state
+### A view on the project state
 ![alt text](project.png)
