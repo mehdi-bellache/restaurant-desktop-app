@@ -9,18 +9,23 @@ import { menuTypes } from "../../data/menuTypes.js";
 
 // il me faut des lignes de commentaires pour expliquer les trucs qui ont l'aire d'aitre un peu complique a comprendre.
 
-document.querySelectorAll(".js-type-btn").forEach((button) => {
-  button.addEventListener("click", function () {
-    renderMenu(getMenuItemsByType(button.textContent.toLowerCase()));
-    addMenuItemToOrder();
-    const buttonMenu = document.querySelectorAll(".js-type-btn");
-    buttonMenu.forEach((element) => {
-      element.classList.remove("actif");
-    });
 
-    button.classList.add("actif");
+function setupMenuTypeFilter() : void{
+  const buttonMenu = document.querySelectorAll<HTMLElement>(".js-type-btn");
+  buttonMenu.forEach((button) => {
+    button.addEventListener("click", function () {
+      renderMenu(getMenuItemsByType(button.textContent.toLowerCase()));
+      addMenuItemToOrder();
+
+      buttonMenu.forEach((element) => {
+        element.classList.remove("active");
+      });
+
+      button.classList.add("active");
+    });
   });
-});
+}
+
 
 function addMenuItemToOrder(){
   document.querySelectorAll<HTMLElement>('.js-menu-item-add').forEach(menuItem =>{
@@ -84,6 +89,8 @@ orderItemsContainer?.addEventListener('click', (event) => {
 
 
 renderMenuTypes(menuTypes);
+
+setupMenuTypeFilter();
 
 renderMenu(menu);
 
