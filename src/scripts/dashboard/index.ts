@@ -46,7 +46,7 @@ function addMenuItemToOrder(){
             quantity : 1
           });
           renderOrders(orders);
-          renderOrderSummary()
+          renderOrderSummary();
         }
 
       }
@@ -54,39 +54,40 @@ function addMenuItemToOrder(){
   })
 }
 
-const orderItemsContainer = document.querySelector<HTMLElement>('.order-items');
+function setupOrderItemMinus() : void{
+  const orderItemsContainer = document.querySelector<HTMLElement>('.order-items');
+  orderItemsContainer?.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLElement>('.js-order-item-minus');
+    const id = button?.dataset.id;
+    if (!id) return;
 
+    const order = orders.find(item => item.id === id);
+    if (!order) return;
 
-orderItemsContainer?.addEventListener('click', (event) => {
-  const button = (event.target as HTMLElement).closest<HTMLElement>('.js-order-item-minus');
-  const id = button?.dataset.id;
-  if (!id) return;
+    if(order.quantity > 0){
+      order.quantity--;
+    }
 
-  const order = orders.find(item => item.id === id);
-  if (!order) return;
+    renderOrders(orders);
+    renderOrderSummary();
+  })
+}
 
-  if(order.quantity > 0){
-    order.quantity--;
-  }
+function setupOrderItemPlus() : void{
+  const orderItemsContainer = document.querySelector<HTMLElement>('.order-items');
+  orderItemsContainer?.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLElement>('.js-order-item-plus');
+    const id = button?.dataset.id;
+    if (!id) return;
 
-  renderOrders(orders);
-  renderOrderSummary();
-})
+    const order = orders.find(item => item.id === id);
+    if (!order) return;
 
-
-orderItemsContainer?.addEventListener('click', (event) => {
-  const button = (event.target as HTMLElement).closest<HTMLElement>('.js-order-item-plus');
-  const id = button?.dataset.id;
-  if (!id) return;
-
-  const order = orders.find(item => item.id === id);
-  if (!order) return;
-
-  order.quantity++;
-  renderOrders(orders);
-  renderOrderSummary();
-})
-
+    order.quantity++;
+    renderOrders(orders);
+    renderOrderSummary();
+  })
+}
 
 renderMenuTypes(menuTypes);
 
@@ -94,8 +95,12 @@ setupMenuTypeFilter();
 
 renderMenu(menu);
 
+addMenuItemToOrder();
+
 renderOrders(orders);
 
-addMenuItemToOrder();
+setupOrderItemMinus();
+
+setupOrderItemPlus();
 
 renderOrderSummary();
