@@ -2,4 +2,4 @@
 
 
 ### A view on the project state
-![alt text](project.png)
+![alt text](images/project.png)
