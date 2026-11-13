@@ -6,11 +6,11 @@
 }
 
 
-.kitchen-receipt{
+.kitchen-ticket{
     width:17rem;
 }
 
-.receipt-title{
+.kitchen-ticket-title{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,48 +20,42 @@
 }
 
 
-.receipt-table{
+.kitchen-ticket-table{
     text-align: center;
     height:2rem;
     border-bottom: 2px dotted #fff ;
     margin:.7rem;
 }
 
-.receipt-details{
+.kitchen-ticket-meta{
     height:4rem;
     border-bottom: 2px dotted #fff ;
     margin:.7rem;
 }
 
-.receipt-detail-time{
+.kitchen-ticket-time{
     display: block;
     font-size:1rem;
     margin-bottom: .5rem;
 }
 
-.receipt-detail-waiter{
+.kitchen-ticket-waiter{
     display: block;
     font-size:1rem;
 }
 
-.order-appetizer{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: .7rem;
-}
 
-.kitchen-order-item{
+.kitchen-ticket-item{
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin: 1rem;
 }
 
-.order-item-quantity{
+.ticket-item-quantity{
     align-self: flex-start;
 }
 
-.order-item-name{
+.ticket-item-name{
     width:70%;
 }
