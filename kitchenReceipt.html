@@ -1,7 +1,3 @@
-<!-- on doit generer un ticket de caisse qui contient le numero de la table et le nombre de personne dans cette table la. -->
-<!--le nom du serveur/se -->
-<!-- la date -->
-<!-- on va avoir une section entrees - plats chaude - boissons - desserts-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,47 +8,38 @@
 </head>
 <body>
     <div class="kitchen-receipt">
-        <span>***********************</span>
-        <p>KITCHEN - PREPARATION</p>
-        <span>***********************</span>
-        <p>TABLE 4 (6 PLATES)</p>
-        <p>----------------------------</p>
-        <p>Le 12/11/2026 - 13:33 | SERVEUR : LEMAIRE</p>
-        <p>----------------------------</p>
-        <div class="entrees">
-            <h5>=== Entrees ===</h5>
-            <div class="entreesElement">
-                <span>3x</span>
-                <span>SOUPE DU JOUR</span>
-            </div>
-
-        </div>
-        <div class="plats-chauds">
-            <h5>=== PLATS-CHAUDS ===</h5>
-            <div class="plat-chaud">
-                <span>1x</span>
-                <span>FOUR CHEESE PIZZA</span>
+        <div class="receipt-info">
+            <h3 class="receipt-title">KITCHEN - PREPARATION</h3>
+            <p class="receipt-table">TABLE 4 (6 PLATES)</p>
+            <div class="receipt-details">
+                <span class="receipt-detail-time">12 Novembre 2026 - 1:33 PM</span>
+                <span class="receipt-detail-waiter">WAITER : JEAN LUC</span>
             </div>
         </div>
+        <div class="kitchen-receipt-order">
+            <div class="kitchen-order-item">
+                <span class="order-item-quantity">3x</span>
+                <span class="order-item-name">SOUPE DU JOUR</span>
+            </div>
+            <div class="kitchen-order-item">
+                <span class="order-item-quantity">1x</span>
+                <span class="order-item-name">SOUPE DU JOUR</span>
+            </div>
+            <div class="kitchen-order-item">
+                <span class="order-item-quantity">1x</span>
+                <span class="order-item-name">FOUR CHEESE PIZZA</span>
+            </div>
         
-        <div class="boissons">
-            <h5>=== BOISSONS ===</h5>
-            <div class="boisson">
-                <span>1x</span>
-                <span>COCA-COLA</span>
+            <div class="kitchen-order-item">
+                <span class="order-item-quantity">1x</span>
+                <span class="order-item-name">COCA-COLA</span>
             </div>
-        </div>
         
-        <div class="desserts">
-            <h5>=== DESSERTS ===</h5>
-            <div class="dessert">
-                <span>4x</span>
-                <span>CAFE-GOURMAND</span>
+            <div class="kitchen-order-item">
+                <span class="order-item-quantity">4x</span>
+                <span class="order-item-name">CAFE-GOURMAND</span>
             </div>
         </div>
-
-
-
     </div>
     
 </body>

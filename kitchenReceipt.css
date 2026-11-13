@@ -2,4 +2,66 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.kitchen-receipt{
+    width:17rem;
+}
+
+.receipt-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .7rem;
+    height:3rem;
+    border: 3px dotted #000;
+}
+
+
+.receipt-table{
+    text-align: center;
+    height:2rem;
+    border-bottom: 2px dotted #fff ;
+    margin:.7rem;
+}
+
+.receipt-details{
+    height:4rem;
+    border-bottom: 2px dotted #fff ;
+    margin:.7rem;
+}
+
+.receipt-detail-time{
+    display: block;
+    font-size:1rem;
+    margin-bottom: .5rem;
+}
+
+.receipt-detail-waiter{
+    display: block;
+    font-size:1rem;
+}
+
+.order-appetizer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: .7rem;
+}
+
+.kitchen-order-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+.order-item-quantity{
+    align-self: flex-start;
+}
+
+.order-item-name{
+    width:70%;
 }
