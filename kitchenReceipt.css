@@ -5,9 +5,14 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+@page{
+    size:80mm auto;
+    margin:0;
+}
 
 .kitchen-ticket{
-    width:17rem;
+    width: 72mm;
+    padding: .7rem;
 }
 
 .kitchen-ticket-title{
@@ -15,47 +20,42 @@
     align-items: center;
     justify-content: center;
     margin: .7rem;
-    height:3rem;
+    padding:.7rem;
+    text-align: center;
     border: 3px dotted #000;
 }
 
 
 .kitchen-ticket-table{
     text-align: center;
-    height:2rem;
-    border-bottom: 2px dotted #fff ;
+    border-bottom: 2px dotted #000;
     margin:.7rem;
+    padding-bottom:.5rem;
 }
 
 .kitchen-ticket-meta{
-    height:4rem;
-    border-bottom: 2px dotted #fff ;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border-bottom: 2px dotted #000 ;
     margin:.7rem;
+    padding-bottom:.5rem;
 }
-
-.kitchen-ticket-time{
-    display: block;
-    font-size:1rem;
-    margin-bottom: .5rem;
-}
-
-.kitchen-ticket-waiter{
-    display: block;
-    font-size:1rem;
-}
-
 
 .kitchen-ticket-item{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: flex-start;
+    gap: .7rem;
     margin: 1rem;
 }
 
-.ticket-item-quantity{
-    align-self: flex-start;
+
+.kitchen-ticket-item-quantity{
+    font-weight: bold;
+    font-size:1.1rem;
 }
 
-.ticket-item-name{
-    width:70%;
+.kitchen-ticket-item-name{
+    font-weight: bold;
+    font-size:1.1rem;
 }
