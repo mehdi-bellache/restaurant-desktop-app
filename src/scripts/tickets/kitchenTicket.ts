@@ -52,3 +52,6 @@ function renderKitchenTicket(){
         kitchenTicketItems.innerHTML = generateKitchenTicketItemsHTML(orders);
     }
 }
+
+
+renderKitchenTicket();
