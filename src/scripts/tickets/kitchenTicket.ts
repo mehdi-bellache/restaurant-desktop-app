@@ -44,7 +44,7 @@ function renderKitchenTicket(){
     const kitchenTicketItems = document.querySelector('.kitchen-ticket-items');
     if(kitchenTicketMeta){
         kitchenTicketMeta.innerHTML = `
-            ${generateKitchenTicketTimeHTML()};
+            ${generateKitchenTicketTimeHTML()}
             <span class="kitchen-ticket-waiter">WAITER : Alex Solen</span>
         `;
     }

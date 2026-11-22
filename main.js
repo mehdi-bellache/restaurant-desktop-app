@@ -24,7 +24,7 @@ function createWindow() {
 app.on("ready", createWindow);
 
 function createWindowForKitchenTicket() {
-  win = new BrowserWindow();
+  win = new BrowserWindow({ show: false });
   win.loadURL(
     url.format({
       pathname: path.join(__dirname, "kitchenReceipt.html"),
@@ -34,40 +34,37 @@ function createWindowForKitchenTicket() {
   );
 }
 
-app.on("ready", createWindowForKitchenTicket);
+function printKitchenTicket() {
+  const options = {
+    silent: true,
+    printBackground: false,
+    deviceName: "kitchen-printer-1",
+    color: false,
+    usePrinterDefaultPageSize: true,
+  };
 
-// on doit sauvegarder toutes les imprimantes dans une variables.
-// mais on est besoin de win pour pouvoir recuperer les info sur les imprimantes
+  const contents = win.webContents;
 
-// const contents = win.webContents;
+  contents
+    .getPrintersAsync()
+    .then((printers) => {
+      // printers will be an array of printer objects
+      printers.forEach((printer) => {
+        if (
+          printer.name === "cuisine-printer-1" ||
+          printer.name === "cuisine-printer-2"
+        ) {
+          printer.print(options, (success, errorTpe) => {
+            if (!success) console.log(errorTpe);
+          });
+        }
+      });
+    })
+    .catch((e) => {
+      console.log("error while trying to print the order");
+    });
+}
 
-// const options = {
-//   silent: true,
-//   printBackground: false,
-//   deviceName: "kitchen-printer-1",
-//   color: false,
-// };
-
-// contents
-//   .getPrintersAsync()
-//   .then((data) => {
-//     // data will be an array of printer objects
-//     data.forEach((element) => {
-//       if (
-//         element.name === "cuisine-printer-1" ||
-//         element.name === "cuisine-printer-2"
-//       ) {
-//         contents.print(options, (event) => {
-//           console.log(event);
-//         });
-//       }
-//     });
-//   })
-//   .catch((e) => {
-//     console.log("error while tryin to print");
-//     // handle error here
-//   });
-
-// win.on("closed", () => {
-//   win = null;
-// });
+win.on("closed", () => {
+  win = null;
+});
