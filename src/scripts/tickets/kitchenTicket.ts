@@ -1,5 +1,5 @@
 
-import {type OrderItem } from "../../data/orders.js";
+import {orders, type OrderItem } from "../../data/orders.js";
 import { getMenuItemById } from "../../data/menu.js";
 
 function getTicketTime(){
@@ -38,6 +38,17 @@ function generateKitchenTicketItemsHTML(kitchenTicketItems : OrderItem[]) : stri
 }
 
 
-// function renderKitchenTicket(){
-//     document.querySelector('.kitchen-ticket-items')?.innerHTML 
-// }
+function renderKitchenTicket(){
+
+    const kitchenTicketMeta = document.querySelector('.js-kitchen-ticket-meta'); 
+    const kitchenTicketItems = document.querySelector('.kitchen-ticket-items');
+    if(kitchenTicketMeta){
+        kitchenTicketMeta.innerHTML = `
+            ${generateKitchenTicketTimeHTML()};
+            <span class="kitchen-ticket-waiter">WAITER : JEAN LUC</span>
+        `;
+    }
+    if(kitchenTicketItems){
+        kitchenTicketItems.innerHTML = generateKitchenTicketItemsHTML(orders);
+    }
+}
