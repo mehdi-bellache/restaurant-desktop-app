@@ -104,3 +104,12 @@ setupOrderItemMinus();
 setupOrderItemPlus();
 
 renderOrderSummary();
+
+
+const ll1 = document.querySelector('.js-order-kitchen')
+if(ll1){
+  ll1.addEventListener('click', function(){
+    const result = await window.api.sendToKitchen(menu);
+
+  })
+}
