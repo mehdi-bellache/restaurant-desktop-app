@@ -1,7 +1,7 @@
 import {menu, type MenuItem, getMenuItemsByType} from "../../data/menu.js" ; 
-import {orders, type OrderItem} from "../../data/orders.js";
+import {order, type OrderItem} from "../../data/order.js";
 import {renderMenu} from "./menuView.js" ;
-import {renderOrders} from "./orderView.js" ;
+import {renderOrder} from "./orderView.js" ;
 import {renderOrderSummary} from "./orderSummary.js" ;
 import { renderMenuTypes } from "./menuTypeView.js"; 
 import { menuTypes } from "../../data/menuTypes.js";
@@ -32,20 +32,20 @@ function addMenuItemToOrder(){
     menuItem.addEventListener('click', function(){
       const id = menuItem.dataset.id ;
       if(!id) return ;
-      const existingOrder = orders.find(order => order.id === id);
+      const existingOrder = order.find(orderItem => orderItem.id === id);
       if(existingOrder){
         existingOrder.quantity++;
-        renderOrders(orders);
+        renderOrder(order);
         renderOrderSummary();
       }
       else{
         const existingMenuItem = menu.find(menuItem => menuItem.id === id);
         if(existingMenuItem){
-          orders.push({
+          order.push({
             id : existingMenuItem.id,
             quantity : 1
           });
-          renderOrders(orders);
+          renderOrder(order);
           renderOrderSummary();
         }
 
@@ -61,14 +61,14 @@ function setupOrderItemMinus() : void{
     const id = button?.dataset.id;
     if (!id) return;
 
-    const order = orders.find(item => item.id === id);
-    if (!order) return;
+    const orderItem = order.find(orderItem => orderItem.id === id);
+    if (!orderItem) return;
 
-    if(order.quantity > 0){
-      order.quantity--;
+    if(orderItem.quantity > 0){
+      orderItem.quantity--;
     }
 
-    renderOrders(orders);
+    renderOrder(order);
     renderOrderSummary();
   })
 }
@@ -80,11 +80,11 @@ function setupOrderItemPlus() : void{
     const id = button?.dataset.id;
     if (!id) return;
 
-    const order = orders.find(item => item.id === id);
-    if (!order) return;
+    const orderItem = order.find(orderItem => orderItem.id === id);
+    if (!orderItem) return;
 
-    order.quantity++;
-    renderOrders(orders);
+    orderItem.quantity++;
+    renderOrder(order);
     renderOrderSummary();
   })
 }
@@ -97,7 +97,7 @@ renderMenu(menu);
 
 addMenuItemToOrder();
 
-renderOrders(orders);
+renderOrder(order);
 
 setupOrderItemMinus();
 
@@ -106,10 +106,10 @@ setupOrderItemPlus();
 renderOrderSummary();
 
 
-const ll1 = document.querySelector('.js-order-kitchen')
-if(ll1){
-  ll1.addEventListener('click', function(){
-    const result = await window.api.sendToKitchen(menu);
+// const ll1 = document.querySelector('.js-order-kitchen')
+// if(ll1){
+//   ll1.addEventListener('click', function(){
+//     const result = await window.api.sendToKitchen(menu);
 
-  })
-}
+//   })
+// }

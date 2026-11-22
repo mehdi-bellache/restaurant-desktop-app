@@ -1,17 +1,17 @@
 import { formatCurrency } from "../utils/money.js";
-import {type OrderItem} from "../../data/orders.js";
+import {type OrderItem} from "../../data/order.js";
 import { getMenuItemById } from "../../data/menu.js";
 
 
-function generateOrderHTML(order : OrderItem){
-  const menuItem = getMenuItemById(order.id);
+function generateOrderItemHTML(orderItem : OrderItem){
+  const menuItem = getMenuItemById(orderItem.id);
   if(!menuItem) return ``;
   return `
     <div class="order-item">
       <div class="order-item-quantity">
-          <button class="order-item-btn order-item-minus js-order-item-minus" data-id = "${order.id}">-</button>
-          <span class="order-item-count">${order.quantity}x</span>
-          <button class="order-item-btn order-item-plus js-order-item-plus" data-id = "${order.id}">+</button>
+          <button class="order-item-btn order-item-minus js-order-item-minus" data-id = "${orderItem.id}">-</button>
+          <span class="order-item-count">${orderItem.quantity}x</span>
+          <button class="order-item-btn order-item-plus js-order-item-plus" data-id = "${orderItem.id}">+</button>
       </div>
       <span class="order-item-name">${menuItem.name}</span>
       <span class="order-item-price">${formatCurrency(menuItem.priceCents)}</span>
@@ -19,20 +19,20 @@ function generateOrderHTML(order : OrderItem){
   `;
 }
 
-function generateOrdersHTML(orders : OrderItem[]) : string{
-  let ordersHTML: string = '';
+function generateOrderHTML(order : OrderItem[]) : string{
+  let orderHTML: string = '';
   
-  orders.forEach(order => {
-    ordersHTML += generateOrderHTML(order);
+  order.forEach(orderItem => {
+    orderHTML += generateOrderItemHTML(orderItem);
   });
   
-  return ordersHTML;
+  return orderHTML;
 }
 
 
-export function renderOrders(orders : OrderItem[]) : void{
+export function renderOrder(order : OrderItem[]) : void{
   const container = document.querySelector<HTMLElement>('.js-order-items');
   if (container) {
-    container.innerHTML = generateOrdersHTML(orders);
+    container.innerHTML = generateOrderHTML(order);
   } 
 }

@@ -4,4 +4,4 @@ export interface OrderItem{
 }
 
 
-export let orders : OrderItem[] = []
+export let order : OrderItem[] = []

@@ -1,5 +1,5 @@
 
-import {orders, type OrderItem } from "../../data/orders.js";
+import {order, type OrderItem } from "../../data/order.js";
 import { getMenuItemById } from "../../data/menu.js";
 
 function getTicketTime(){
@@ -49,7 +49,7 @@ function renderKitchenTicket(){
         `;
     }
     if(kitchenTicketItems){
-        kitchenTicketItems.innerHTML = generateKitchenTicketItemsHTML(orders);
+        kitchenTicketItems.innerHTML = generateKitchenTicketItemsHTML(order);
     }
 }
 

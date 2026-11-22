@@ -1,16 +1,16 @@
 import { formatCurrency } from "../utils/money.js";
-import {orders, type OrderItem} from "../../data/orders.js";
+import {order, type OrderItem} from "../../data/order.js";
 import { config } from "../../data/config.js";
 import { getMenuItemById } from "../../data/menu.js";
 
 
 function calculateSubtotalCents(orders : OrderItem[]){
-  if(orders.length === 0) return 0;
+  if(order.length === 0) return 0;
   let sum : number = 0 ;
-  orders.forEach(order =>{
-    let menuItem = getMenuItemById(order.id);
+  order.forEach(orderItem =>{
+    let menuItem = getMenuItemById(orderItem.id);
     if(menuItem){
-      sum += menuItem.priceCents * order.quantity;
+      sum += menuItem.priceCents * orderItem.quantity;
     }
  
   });
@@ -18,18 +18,18 @@ function calculateSubtotalCents(orders : OrderItem[]){
   return sum ;
 }
 
-function calculateTaxCents(orders : OrderItem[]){
-  return calculateSubtotalCents(orders) * config.taxRate;
+function calculateTaxCents(order : OrderItem[]){
+  return calculateSubtotalCents(order) * config.taxRate;
 }
 
-function calculateTotalWithTaxCents(orders : OrderItem[]){
-  return calculateSubtotalCents(orders) + calculateTaxCents(orders) ;
+function calculateTotalWithTaxCents(order : OrderItem[]){
+  return calculateSubtotalCents(order) + calculateTaxCents(order) ;
 }
 
 export function renderOrderSummary(){
   let container = document.querySelector<HTMLElement>('.js-order-ht-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateSubtotalCents(orders))}`;
+    container.innerHTML = `${formatCurrency(calculateSubtotalCents(order))}`;
   }
   container = document.querySelector<HTMLElement>('.js-order-vat-name');
 
@@ -39,12 +39,12 @@ export function renderOrderSummary(){
 
    container = document.querySelector<HTMLElement>('.js-order-vat-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateTaxCents(orders))}`;
+    container.innerHTML = `${formatCurrency(calculateTaxCents(order))}`;
   }
 
   container = document.querySelector<HTMLElement>('.js-order-total-price');
   if(container){
-    container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(orders))}`;
+    container.innerHTML = `${formatCurrency(calculateTotalWithTaxCents(order))}`;
   }
 
 }
