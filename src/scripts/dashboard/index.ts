@@ -5,6 +5,7 @@ import {renderOrder} from "./orderView.js" ;
 import {renderOrderSummary} from "./orderSummary.js" ;
 import { renderMenuTypes } from "./menuTypeView.js"; 
 import { menuTypes } from "../../data/menuTypes.js";
+import { setupSendToKitchenButton } from "./orderAction.js";
 
 
 // il me faut des lignes de commentaires pour expliquer les trucs qui ont l'aire d'aitre un peu complique a comprendre.
@@ -105,11 +106,4 @@ setupOrderItemPlus();
 
 renderOrderSummary();
 
-
-// const ll1 = document.querySelector('.js-order-kitchen')
-// if(ll1){
-//   ll1.addEventListener('click', function(){
-//     const result = await window.api.sendToKitchen(menu);
-
-//   })
-// }
+setupSendToKitchenButton();

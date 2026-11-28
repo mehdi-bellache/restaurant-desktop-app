@@ -5,13 +5,11 @@ import url from "url";
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 let win;
 
 function createWindow() {
   win = new BrowserWindow();
+  // to load a local HTML file
   win.loadFile("index.html");
 }
 
@@ -25,39 +23,33 @@ const options = {
   usePrinterDefaultPageSize: true,
 };
 
-ipcMain.handle("send-to-kitchen", async (event, order) => {
+ipcMain.handle("send-to-kitchen", async () => {
   // 1. créer la fenêtre du ticket avec les données de `order`
   const window = createWindowForKitchenTicket();
-  // 2. imprimer
-  const result = await printKitchenTicket(window);
-  // 3. fermer la fenêtre
-  window.close();
-  // 4. renvoyer { success: true } ou { success: false, error }
-  result
-    .then(function () {
-      return { success: true };
-    })
-    .catch(function () {
-      return { success: false };
-    });
+  try {
+    // 2. imprimer
+    const result = await printKitchenTicket(window);
+  } catch (e) {
+    return { success: false, error: String(e) };
+  } finally {
+    window.close();
+  }
 });
 
-function createWindowForKitchenTicket() {
+async function createWindowForKitchenTicket() {
   const window = new BrowserWindow({ show: false });
-  window.loadFile("kitchenReceipt.html");
+  await window.loadFile("kitchenReceipt.html");
   return window;
 }
 
 async function printKitchenTicket(window) {
   const contents = window.webContents;
 
-  window.webContents.print(
-    options,
-    new Promise((resolve, reject) => {
-      if (!success) resolve();
-      return reject();
-    }),
-  );
+  return new Promise((resolve) => {
+    window.webContents.print(options, (success, failureReason) => {
+      resolve({ success, error: success ? undefined : failureReason });
+    });
+  });
 }
 
 win.on("closed", () => {
