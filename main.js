@@ -12,57 +12,52 @@ let win;
 
 function createWindow() {
   win = new BrowserWindow();
-  win.loadURL(
-    url.format({
-      pathname: path.join(__dirname, "index.html"),
-      protocol: "file",
-      slashes: true,
-    }),
-  );
+  win.loadFile("index.html");
 }
 
 app.on("ready", createWindow);
 
+const options = {
+  silent: true,
+  printBackground: false,
+  deviceName: "Brother_QL_820NWB",
+  color: false,
+  usePrinterDefaultPageSize: true,
+};
+
+ipcMain.handle("send-to-kitchen", async (event, order) => {
+  // 1. créer la fenêtre du ticket avec les données de `order`
+  const window = createWindowForKitchenTicket();
+  // 2. imprimer
+  const result = await printKitchenTicket(window);
+  // 3. fermer la fenêtre
+  window.close();
+  // 4. renvoyer { success: true } ou { success: false, error }
+  result
+    .then(function () {
+      return { success: true };
+    })
+    .catch(function () {
+      return { success: false };
+    });
+});
+
 function createWindowForKitchenTicket() {
-  win = new BrowserWindow({ show: false });
-  win.loadURL(
-    url.format({
-      pathname: path.join(__dirname, "kitchenReceipt.html"),
-      protocol: "file",
-      slashes: true,
-    }),
-  );
+  const window = new BrowserWindow({ show: false });
+  window.loadURL(loadFile("kitchenReceipt.html"));
+  return window;
 }
 
-function printKitchenTicket() {
-  const options = {
-    silent: true,
-    printBackground: false,
-    deviceName: "kitchen-printer-1",
-    color: false,
-    usePrinterDefaultPageSize: true,
-  };
+async function printKitchenTicket(window) {
+  const contents = window.webContents;
 
-  const contents = win.webContents;
-
-  contents
-    .getPrintersAsync()
-    .then((printers) => {
-      // printers will be an array of printer objects
-      printers.forEach((printer) => {
-        if (
-          printer.name === "cuisine-printer-1" ||
-          printer.name === "cuisine-printer-2"
-        ) {
-          printer.print(options, (success, errorTpe) => {
-            if (!success) console.log(errorTpe);
-          });
-        }
-      });
-    })
-    .catch((e) => {
-      console.log("error while trying to print the order");
-    });
+  window.webContents.print(
+    options,
+    new Promise((resolve, reject) => {
+      if (!success) resolve();
+      return reject();
+    }),
+  );
 }
 
 win.on("closed", () => {
