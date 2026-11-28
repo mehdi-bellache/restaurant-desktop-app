@@ -44,7 +44,7 @@ ipcMain.handle("send-to-kitchen", async (event, order) => {
 
 function createWindowForKitchenTicket() {
   const window = new BrowserWindow({ show: false });
-  window.loadURL(loadFile("kitchenReceipt.html"));
+  window.loadFile("kitchenReceipt.html");
   return window;
 }
 
